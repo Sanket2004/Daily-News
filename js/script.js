@@ -13,7 +13,10 @@ const options = [
     "science",
     "sports",
     "technology",
+    "nation",
+    "world",
 ];
+
 
 //100 requests per day
 let requestURL;
@@ -25,25 +28,26 @@ const toggleProgressBar = (show) => {
 
 //Create cards from data
 const generateUI = (articles) => {
-    for (let item of articles) {
-        let card = document.createElement("div");
-        card.classList.add("news-card");
-        card.innerHTML = `<div class="news-image-container">
-    <img src="${item.urlToImage || "./img/newspaper.jpg"}" alt="news" />
-    </div>
-    <div class="news-content">
-      <div class="news-title">
-        ${item.title}
+  for (let item of articles) {
+      let card = document.createElement("div");
+      card.classList.add("news-card");
+      card.innerHTML = `<div class="news-image-container">
+          <img src="${item.image || "./img/newspaper.jpg"}" alt="news" />
       </div>
-      <div class="news-description">
-      ${item.description || item.content || ""}
-      </div>
-      <p class="publish-date">Published At: ${item.publishedAt}</p>
-      <a href="${item.url}" target="_blank" class="view-button">Read More</a>
-    </div>`;
-        container.appendChild(card);
-    }
+      <div class="news-content">
+          <div class="news-title">
+              ${item.title}
+          </div>
+          <div class="news-description">
+              ${item.description || item.content || ""}
+          </div>
+          <p class="publish-date">Published At: ${item.publishedAt}</p>
+          <a href="${item.url}" target="_blank" class="view-button">Read More</a>
+      </div>`;
+      container.appendChild(card);
+  }
 };
+
 
 //  <a href="https://newsapi.org/v2/everything?q=${item.title}&sortBy=popularity&apiKey=${apiKey}" target="_blank" class="view-button">Search</a>
 
@@ -88,15 +92,17 @@ const getNews = async () => {
 };
 
 //Category Selection
+// Category Selection
 const selectCategory = (e, category) => {
-    let options = document.querySelectorAll(".option");
-    options.forEach((element) => {
-        element.classList.remove("active");
-    });
-    requestURL = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}`;
-    e.target.classList.add("active");
-    getNews();
+  let options = document.querySelectorAll(".option");
+  options.forEach((element) => {
+      element.classList.remove("active");
+  });
+  requestURL = `https://gnews.io/api/v4/top-headlines?category=${category}&country=in&lang=en&apikey=${apiKey}`;
+  e.target.classList.add("active");
+  getNews();
 };
+
 
 
 //Options Buttons
@@ -114,7 +120,7 @@ const init = () => {
 };
 
 window.onload = () => {
-    requestURL = `https://newsapi.org/v2/top-headlines?country=${country}&category=general&apiKey=${apiKey}`;
+  requestURL = `https://gnews.io/api/v4/top-headlines?category=general&country=in&lang=en&apikey=${apiKey}`;
     init();
 };
 
