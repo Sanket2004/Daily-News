@@ -27,7 +27,7 @@ This web app is built using HTML, CSS, and JavaScript, and it fetches news data 
 1. Clone the repository to your local machine.
 
     ```bash
-    git clone https://github.com/your-username/daily-news-web-app.git
+    git clone https://github.com/Sanket2004/Daily-News.git
     ```
 
 2. Open the `index.html` file in your preferred web browser.
@@ -67,3 +67,15 @@ npm install
 
 # Run the development server
 npm start
+
+## Contributing
+
+If you'd like to contribute to this project, feel free to fork the repository and submit a pull request. Contributions are always welcome!
+
+## Acknowledgments
+
+Special thanks to [GNews](https://gnews.io/) for providing the news API.
+
+## Live Site
+
+[Check Here](https://daily-paper.netlify.app/)
