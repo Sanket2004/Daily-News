@@ -1,3 +1,5 @@
+<img src="https://github.com/Sanket2004/Daily-News/blob/main/img/logo.png?raw=true" width="100%" height="100%">
+
 # Daily News Web App
 
 Welcome to Daily News, a web application that provides daily updated news using the GNews API.
